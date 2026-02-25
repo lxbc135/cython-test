@@ -1,23 +1,29 @@
 """Setup configuration for Fibonacci Cython extension."""
 
 from setuptools import setup, Extension
-from Cython.Build import cythonize
-import os
 
-# Define the extension module
+use_cython = False
+try:
+    from Cython.Build import cythonize  # type: ignore
+    use_cython = True
+except ImportError:
+    pass
+
+# Prefer Cython when available, fallback to the generated C source.
+source_suffix = ".pyx" if use_cython else ".c"
 ext_modules = [
     Extension(
         "fibonacci._fibonacci",
-        sources=["src/fibonacci/_fibonacci.pyx"],
+        sources=[f"src/fibonacci/_fibonacci{source_suffix}"],
         language="c",
     )
 ]
 
-# Build extensions
-extensions = cythonize(ext_modules, language_level=3)
+if use_cython:
+    ext_modules = cythonize(ext_modules, language_level=3) # type: ignore
 
 setup(
-    ext_modules=extensions,
+    ext_modules=ext_modules, # type: ignore
     package_dir={"": "src"},
     packages=["fibonacci"],
 )

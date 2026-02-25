@@ -18,8 +18,10 @@ keywords = ["fibonacci", "cython", "performance"]
 
 [dependency-groups]
 dev = [
+    "build>=1.2.2.post1",
     "cython>=0.29",
     "pytest>=8.3.5",
+    "setuptools>=75.3.4",
 ]
 
 [tool.pytest.ini_options]
