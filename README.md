@@ -36,7 +36,13 @@ uv run python setup.py build_ext --inplace
 uv pip install -e .
 ```
 
-**To try this package:**
+**To uninstall current package in edit mode:**
+
+```bash
+uv pip uninstall fibonacci
+```
+
+**To try package:**
 
 ```bash
 uv run python -c 'from fibonacci import fibonacci; print(f"fibonacci(10): {fibonacci(10)}")'
@@ -59,6 +65,36 @@ result = fibonacci(10)  # Returns 55
 # Generate sequence of first n Fibonacci numbers
 sequence = fibonacci_sequence(10)  # Returns [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 ```
+
+## Release Build
+
+**To build wheel (whl):**
+
+```bash
+uv run python -m build --wheel
+```
+
+If you get "Access Denied" error whiling removing `%LocalAppData%\Temp\....whl` file on Windows, you can try adding `--no-isolation` option to use local directory.
+
+```bash
+uv run python -m build --wheel --no-isolation
+```
+
+It creates `.whl` file in `dist` directory.
+
+**To package source distribution (sdist):**
+
+```bash
+uv run python -m build --sdist
+```
+
+As with wheels, if you get access error with `%LocalAppData%` on Windows, you can try `--no-isolation` option:
+
+```bash
+uv run python -m build --sdist --no-isolation
+```
+
+It creates `.tar.gz` source distribution in `dist` directory.
 
 ## To create setup.py
 

@@ -3,4 +3,3 @@ recursive-include src/fibonacci *.pyx *.py *.c
 recursive-include tests *.py
 include pyproject.toml
 include setup.py
-include Justfile
