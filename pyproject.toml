@@ -3,16 +3,16 @@ requires = ["setuptools>=65", "wheel", "cython>=0.29"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "fibonacci-extension"
+name = "cython-test"
 version = "0.1.0"
-description = "Fast Fibonacci calculation using Cython"
+description = "Python extension example using Cython"
 readme = "README.md"
 requires-python = ">=3.8"
 authors = [
     {name = "Developer", email = "dev@example.com"}
 ]
 license = {text = "MIT"}
-keywords = ["fibonacci", "cython", "performance"]
+keywords = ["hello", "cython", "example"]
 
 [project.optional-dependencies]
 
@@ -30,8 +30,8 @@ testpaths = ["tests"]
 addopts = "-v"
 
 [tool.setuptools]
-packages = ["fibonacci"]
+packages = ["hello"]
 package-dir = {"" = "src"}
 
 # [tool.setuptools.ext-modules]
-# fibonacci._fibonacci = {sources = ["src/fibonacci/_fibonacci.pyx"]}
+# hello._hello = {sources = ["src/hello/_hello.pyx"]}

@@ -1,4 +1,4 @@
-"""Setup configuration for Fibonacci Cython extension."""
+"""Setup configuration for Hello Cython extension."""
 
 from setuptools import setup, Extension
 
@@ -13,8 +13,8 @@ except ImportError:
 source_suffix = ".pyx" if use_cython else ".c"
 ext_modules = [
     Extension(
-        "fibonacci._fibonacci",
-        sources=[f"src/fibonacci/_fibonacci{source_suffix}"],
+        "hello._hello",
+        sources=[f"src/hello/_hello{source_suffix}"],
         language="c",
     )
 ]
@@ -25,5 +25,5 @@ if use_cython:
 setup(
     ext_modules=ext_modules, # type: ignore
     package_dir={"": "src"},
-    packages=["fibonacci"],
+    packages=["hello"],
 )
