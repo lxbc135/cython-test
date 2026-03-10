@@ -16,7 +16,19 @@ A Python extension in Cython example.
 uv venv --python 3.14
 ```
 
-That will create virtual environment `.venv/` directory with Python 3.14.
+That will create virtual environment `.venv` directory with Python 3.14.
+
+**To activate virtual environment (on Linux):**
+
+```bash
+source .venv/bin/activate
+```
+
+**To activate virtual environment (on Windows Bash):**
+
+```bash
+source .venv/Scripts/activate
+```
 
 **To install build dependencies:**
 
@@ -30,17 +42,7 @@ uv sync --group dev
 uv run python setup.py build_ext --inplace
 ```
 
-**To install current package in editable (development) mode:**
-
-```bash
-uv pip install -e .
-```
-
-**To uninstall current package in edit mode:**
-
-```bash
-uv pip uninstall fibonacci
-```
+The `--inplace` option creates the built `.pyd`/`.so` extension file directly alongside the source `.pyx` file in the source tree, instead of putting it under build. That allows Python to find it, and lets you use the package without installing it.
 
 **To try package:**
 
@@ -67,6 +69,18 @@ sequence = fibonacci_sequence(10)  # Returns [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 ```
 
 ## Release Build
+
+**To install current package in editable (development) mode:**
+
+```bash
+uv pip install -e .
+```
+
+**To uninstall current package in edit mode:**
+
+```bash
+uv pip uninstall fibonacci-extension
+```
 
 **To build wheel (whl):**
 
