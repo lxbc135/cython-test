@@ -114,14 +114,6 @@ uv run --python 3.12 python -m build --wheel --no-isolation
 
 It will create `.whl` for Python 3.12 in `dist` directory.
 
-## To create setup.py
-
-To create a setup.py file needed for build_ext:
-
-```bash
-python -c "import setuptools; from Cython.Build import cythonize; import os; os.system('python setup.py build_ext --inplace')"
-```
-
 ## Clean up
 
 To clean up:
